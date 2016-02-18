@@ -11,3 +11,7 @@
 - Draw number of cards that match number you have placed
 - Winner of round, gains the statement card and one point
 - First play to x number of points wins
+
+### Run:
+mac:
+DEBUG=cards-against-hugh-manatee:* npm start
