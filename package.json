@@ -1,0 +1,22 @@
+{
+  "name": "cahackathon",
+  "version": "1.0.0",
+  "description": "Cards Against Hugh-Manatee",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/roy-mayden/cahackathon.git"
+  },
+  "author": "Tohmua, roy-mayden",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/roy-mayden/cahackathon/issues"
+  },
+  "homepage": "https://github.com/roy-mayden/cahackathon#readme",
+  "dependencies": {
+    "express": "^4.13.4"
+  }
+}
