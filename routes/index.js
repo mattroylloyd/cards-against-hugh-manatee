@@ -30,7 +30,18 @@ var statements = [
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+  var cards = [];
+  for (var i = 0; i < 8; i++) {
+      cards.push(answerCards[Math.floor(Math.random() * answerCards.length)]);
+  }
+
+  console.log(cards[1]);
+
+  res.render('index', {
+    title: 'Cards Against Hugh-Manatee',
+    parimarycard: 'foo',
+    cards: cards
+  });
 });
 
 /* GET home page. */
