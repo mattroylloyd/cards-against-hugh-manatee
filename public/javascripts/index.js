@@ -3,21 +3,14 @@ $(function() {
 
     $.get("register/" + uuid)
      .done(function () {
-         
+
      })
      .error(function() {
         alert('There was an error please reload the page!');
      });
 
-    $.get("draw/phpazar/")
-     .done(function (data) {
-        $( "#phpazarCard p" ).text(data.title);
-     })
-     .error(function () {
-        alert('There was an error please reload the page!');
-     });
-
-     applyOnClickEvents();
+    applyOnClickEvents();
+    startRound();
 });
 
 function guid() {
@@ -52,4 +45,14 @@ function applyOnClickEvents() {
              });
         });
     });
+}
+
+function startRound() {
+    $.get("draw/phpazar/")
+     .done(function (data) {
+        $( "#phpazarCard p" ).text(data.title);
+     })
+     .error(function () {
+        alert('There was an error please reload the page!');
+     });
 }
