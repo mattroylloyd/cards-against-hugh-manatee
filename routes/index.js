@@ -24,21 +24,8 @@ var random = function (data) {
 };
 
 var answerCards = [
-  {id: 1, title: 'And'},
-  {id: 2, title: 'Bootstrap'},
-  {id: 3, title: 'Cards'},
-  {id: 4, title: 'Dog'},
-  {id: 5, title: 'End'},
-  {id: 11, title: 'Fred'},
-  {id: 12, title: 'Go'},
-  {id: 13, title: 'Hugh'},
-  {id: 14, title: 'Ivor'},
-  {id: 15, title: 'Jerry'},
-  {id: 111, title: 'Kind'},
-  {id: 112, title: 'Loom'},
-  {id: 113, title: 'Moon'},
-  {id: 114, title: 'Noon'},
-  {id: 115, title: 'Oooh'},
+  {id: 1, title: 'The Great Barrier Reef'},
+  {id: 2, title: 'Something something something'},
 ];
 
 var statements = [

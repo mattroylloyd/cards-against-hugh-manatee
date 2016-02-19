@@ -19,6 +19,14 @@ div.card, div.phpazarCard {
     border-radius: 7px;
 }
 
+.hand {
+    background-color: #eee;
+}
+
+.block {
+    display: block;
+}
+
 div.phpazarCard {
     display: block;
     background-color: #000;
