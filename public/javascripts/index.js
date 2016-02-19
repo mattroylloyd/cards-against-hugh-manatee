@@ -12,16 +12,18 @@ $(function() {
         });
 
         $('.card').off('click').click(function () {
-            console.log(this);
             var handIndex = $(this).attr('data-hand');
+            var cardIndex = $(this).attr('data-card');
             hand.splice(handIndex, 1);
-            // draw a card
-            //
-            $.get('/draw/answer/').done(function (results) {
+            $.post('/play/', {userid: uuid, card: cardIndex}).done(function (results) {
+              // draw a card
+              $.get('/draw/answer/').done(function (results) {
                 card = results[0];
                 hand.push(card);
                 updateHand();
+              });
             });
+
             updateHand();
         });
     }

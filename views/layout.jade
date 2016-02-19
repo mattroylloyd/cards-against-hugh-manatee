@@ -27,5 +27,9 @@ html
           });
         });
 
+        answer_pool.bind('card_played', function(_, card) {
+          $('#playedCards').append('<div class="card">' + card.title + '</div>');
+        })
+
   body
     block content
