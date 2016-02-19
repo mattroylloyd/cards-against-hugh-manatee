@@ -36,8 +36,14 @@ div.phpazarCard {
     float: none;
 }
 
+div.playedCards {
+    display: block;
+    float: right;
+}
+
 div.card:hover, div.phpazarCard:hover {
     opacity: 1;
+    cursor: pointer;
 }
 
 div.card p, div.phpazarCard p {
