@@ -24,8 +24,29 @@ var random = function (data) {
 };
 
 var answerCards = [
-  {id: 1, title: 'The Great Barrier Reef'},
-  {id: 2, title: 'Something something something'},
+  {id: 1, title: "An 'extremely credible source' has called my office and told me that Barack Obama's birth certificate is a fraud"},
+  {id: 2, title: "Robert Pattinson should not take back Kristen Stewart. She cheated on him like a dog & will do it again - just watch. He can do much better!"},
+  {id: 3, title: "Ariana Huffington is unattractive, both inside and out. I fully understand why her former husband left her for a man - he made a good decision."},
+  {id: 4, title: "You know, it really doesn't matter what the media write as long as you've got a young, and beautiful, piece of ass."},
+  {id: 5, title: "I will build a great wall - and nobody builds walls better than me, believe me - and I'll build them very inexpensively. I will build a great, great wall on our southern border, and I will make Mexico pay for that wall. Mark my words."},
+  {id: 6, title: "When Mexico sends its people, they're not sending the best. They're not sending you, they're sending people that have lots of problems and they're bringing those problems with us. They're bringing drugs. They're bring crime. They're rapists… And some, I assume, are good people."},
+  {id: 7, title: "Our great African-American President hasn't exactly had a positive impact on the thugs who are so happily and openly destroying Baltimore."},
+  {id: 8, title: "If I were running 'The View', I'd fire Rosie O'Donnell. I mean, I'd look at her right in that fat, ugly face of hers, I'd say 'Rosie, you're fired.'"},
+  {id: 9, title: "All of the women on The Apprentice flirted with me - consciously or unconsciously. That's to be expected."},
+  {id: 10, title: "One of they key problems today is that politics is such a disgrace. Good people don't go into government."},
+  {id: 11, title: "The beauty of me is that I'm very rich."},
+  {id: 12, title: "It's freezing and snowing in New York - we need global warming!"},
+  {id: 13, title: "I've said if Ivanka weren't my daughter, perhaps I'd be dating her."},
+  {id: 15, title: "My fingers are long and beautiful, as, it has been well documented, are various other parts of my body."},
+  {id: 16, title: "I have never seen a thin person drinking Diet Coke."},
+  {id: 17, title: "I think the only difference between me and the other candidates is that I'm more honest and my women are more beautiful."},
+  {id: 18, title: "You're disgusting."},
+  {id: 19, title: "The point is, you can never be too greedy."},
+  {id: 20, title: "Sorry, there is no STAR on the stage tonight!"},
+  {id: 21, title: "My Twitter has become so powerful that I can actually make my enemies tell the truth."},
+  {id: 22, title: "My IQ is one of the highest - and you all know it! Please don't feel so stupid or insecure; it's not your fault."},
+  {id: 23, title: "I have so many fabulous friends who happen to be gay, but I am a traditionalist."},
+  {id: 24, title: "The other candidates - they went in, they didn't know the air conditioning didn't work. They sweated like dogs...How are they gonna beat ISIS? I don't think it's gonna happen. "},
 ];
 
 var statements = [
@@ -40,9 +61,6 @@ router.get('/', function(req, res, next) {
   res.render('index', {
     title: 'Cards Against Hugh-Manatee',
   });
-
-  // register user
-  // draw them a hand
 });
 
 /* GET home page. */
@@ -56,6 +74,15 @@ router.get('/draw/answer/:number?', function(req, res, next) {
   }
 
   jsonResponse(res, cards);
+});
+
+router.post('/play', function(req, res) {
+  var card = req.params.card;
+  var userId = req.params.userId;
+
+  // trigger event to add card to answer pool with user id
+
+  jsonResponse(res, []);
 });
 
 router.get('/draw/phpazar', function (req, res, next) {

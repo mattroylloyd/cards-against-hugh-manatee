@@ -1,6 +1,31 @@
 $(function() {
     var uuid = guid();
 
+    var hand = [];
+
+    function updateHand()
+    {
+        $('.hand').empty();
+
+        $.each(hand, function (_, result) {
+            $('.hand').append('<div class="card" data-hand="'+_+'" data-card="' + result.id + '">' + result.title + '</div>');
+        });
+
+        $('.card').off('click').click(function () {
+            console.log(this);
+            var handIndex = $(this).attr('data-hand');
+            hand.splice(handIndex, 1);
+            // draw a card
+            //
+            $.get('/draw/answer/').done(function (results) {
+                card = results[0];
+                hand.push(card);
+                updateHand();
+            });
+            updateHand();
+        });
+    }
+
     $.get("register/" + uuid)
      .done(function () {
      })
@@ -9,9 +34,8 @@ $(function() {
      });
 
      $.get('/draw/answer/8').done(function (results) {
-         $.each(results, function (_, result) {
-             $('.hand').append('<div class="card">' + result.title + '</div>');
-         });
+         hand = results;
+         updateHand();
      });
 
     startRound();
@@ -29,16 +53,26 @@ var pusher = new Pusher('84e4a1b554378879fa22', {
 
 var user_channel = pusher.subscribe('users')
 , answer_pool  = pusher.subscribe('answer_pool')
-, hand  = pusher.subscribe('hand')
 ;
 
-hand.bind('play_card', function(data) {
+answer_pool.bind('card_played', function(data) {
+    // Remove from hand, add too answer pool
    alert(data.message);
 });
+
+// hand.bind('update_hand', function (data) {
+//     updateHand();
+// });
 
 answer_pool.bind('submit_answer', function (data) {
    alert(data.message);
 });
+
+// user_channel.bind('add_user', function(data) {
+//   $.each(data.cards, function (_, card) {
+//     $('.hand').append('<div class="card">' + card.title + '</div>');
+//   });
+// });
 
 function guid() {
   return s4() + s4() + '-' + s4() + '-' + s4() + '-' +
@@ -52,6 +86,7 @@ function s4() {
 }
 
 function applyOnClickEvents() {
+
     // $( ".card" ).each(function( index ) {
     //     $( this ).off("click").click(function () {
     //         $.post( "play/" + $( this ).id, { cardid: $( this ).id } )
