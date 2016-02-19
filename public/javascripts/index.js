@@ -17,6 +17,29 @@ $(function() {
     startRound();
 });
 
+Pusher.log = function(message) {
+    if (window.console && window.console.log) {
+        window.console.log(message);
+    }
+};
+
+var pusher = new Pusher('84e4a1b554378879fa22', {
+    encrypted: true
+});
+
+var user_channel = pusher.subscribe('users')
+, answer_pool  = pusher.subscribe('answer_pool')
+, hand  = pusher.subscribe('hand')
+;
+
+hand.bind('play_card', function(data) {
+   alert(data.message);
+});
+
+answer_pool.bind('submit_answer', function (data) {
+   alert(data.message);
+});
+
 function guid() {
   return s4() + s4() + '-' + s4() + '-' + s4() + '-' +
     s4() + '-' + s4() + s4() + s4();

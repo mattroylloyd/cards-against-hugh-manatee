@@ -40,6 +40,9 @@ router.get('/', function(req, res, next) {
   res.render('index', {
     title: 'Cards Against Hugh-Manatee',
   });
+
+  // register user
+  // draw them a hand
 });
 
 /* GET home page. */
