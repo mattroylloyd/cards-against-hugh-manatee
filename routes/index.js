@@ -3,7 +3,11 @@ var router = express.Router();
 
 var jsonResponse = function (res, data) {
     res.setHeader('Content-Type', 'application/json');
-    res.send(JSON.stringify(data));
+    res.send(JSON.stringify(data, null, 3));
+};
+
+var random = function (data) {
+    return data[Math.floor(Math.random() * data.length)];
 };
 
 var answerCards = [
@@ -26,6 +30,7 @@ var answerCards = [
 
 var statements = [
     {id: 1, statement: 'This is an example of a _ question'},
+    {id: 2, statement: '_ likes to do the thing'},
 ];
 
 /* GET home page. */
@@ -51,10 +56,14 @@ router.get('/draw/answer/:number?', function(req, res, next) {
   var cards = [];
 
   for (var i = 0; i < number; i++) {
-      cards.push(answerCards[Math.floor(Math.random() * answerCards.length)]);
+      cards.push(random(answerCards));
   }
 
   jsonResponse(res, cards);
+});
+
+router.get('/draw/statement', function (req, res, next) {
+    jsonResponse(res, random(statements));
 });
 
 module.exports = router;
