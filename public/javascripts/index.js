@@ -1,12 +1,15 @@
 $(function() {
     var uuid = guid();
 
-    $.post( "register/" + uuid, {userid: uuid})
-     .error(function(){
+    $.get("register/" + uuid)
+     .done(function () {
+         
+     })
+     .error(function() {
         alert('There was an error please reload the page!');
      });
 
-    $.post( "/draw/phpazar/" )
+    $.get("draw/phpazar/")
      .done(function (data) {
         $( "#phpazarCard p" ).text(data.title);
      })
