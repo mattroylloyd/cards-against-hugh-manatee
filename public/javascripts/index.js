@@ -8,12 +8,12 @@ $(function() {
         alert('There was an error please reload the page!');
      });
 
-     })
-     .error(function() {
-        alert('There was an error please reload the page!');
+     $.get('/draw/answer/8').done(function (results) {
+         $.each(results, function (_, result) {
+             $('.hand').append('<div class="card">' + result.title + '</div>');
+         });
      });
 
-    applyOnClickEvents();
     startRound();
 });
 
@@ -36,7 +36,7 @@ function applyOnClickEvents() {
                 $( this ).remove();
                 $.get( "/draw/answer/1" )
                  .done(function (data) {
-                    $("body").append("<div id='" + data[0].id + "' class='card'><p>" + data[0].title + "</p></div>")
+                    $("body").append("<div id='" + data[0].id + "' class='card'><p>" + data[0].title + "</p></div>");
                     applyOnClickEvents();
                  })
                  .error(function () {
@@ -54,7 +54,7 @@ function applyOnClickEvents() {
 function startRound() {
     $.get("draw/phpazar/")
      .done(function (data) {
-        $( "#phpazarCard p" ).text(data.title);
+        $( "#phpazarCard p" ).text(data.statement.replace('_', '_____'));
      })
      .error(function () {
         alert('There was an error please reload the page!');
