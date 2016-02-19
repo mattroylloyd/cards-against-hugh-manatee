@@ -2,9 +2,9 @@ extends layout
 
 block content
   h1= title
-  #parimaryCard.primaryCard
+  #phpazarCard.phpazarCard
     p
-  div.card
+  div(id=cards[0].id).card
     p= cards[0].title
   div.card
     p= cards[1].title

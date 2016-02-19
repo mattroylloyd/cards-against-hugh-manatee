@@ -7,7 +7,7 @@ a {
   color: #00B7FF;
 }
 
-div.card, div.primaryCard {
+div.card, div.phpazarCard {
     display: inline-block;
     border: solid 1px #000;
     width: 110px;
@@ -16,24 +16,25 @@ div.card, div.primaryCard {
     margin: 10px;
     background-color: #fff;
     opacity: 0.8;
+    border-radius: 7px;
 }
 
-div.primaryCard {
+div.phpazarCard {
     display: block;
     background-color: #000;
 }
 
-div.card:hover, div.primaryCard:hover {
+div.card:hover, div.phpazarCard:hover {
     opacity: 1;
 }
 
-div.card p, div.primaryCard p {
+div.card p, div.phpazarCard p {
     display: block;
     padding: 0px;
     margin: 0px 0px 10px 0px;
     font: bold 14px/16px arial;
 }
 
-div.primaryCard p {
+div.phpazarCard p {
     color: #fff;
 }
