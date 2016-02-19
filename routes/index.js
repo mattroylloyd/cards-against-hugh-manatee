@@ -66,10 +66,6 @@ router.get('/', function(req, res, next) {
 
 /* GET home page. */
 router.get('/draw/answer/:number?', function(req, res, next) {
-  pusher.trigger('users', 'add_user', {
-    "message": "hello world"
-  });
-
   var number = req.params.number || 1;
 
   var cards = [];
@@ -77,6 +73,11 @@ router.get('/draw/answer/:number?', function(req, res, next) {
   for (var i = 0; i < number; i++) {
       cards.push(random(answerCards));
   }
+
+  pusher.trigger('users', 'add_user', {
+    "message": "hello world",
+    cards: cards
+  });
 
   jsonResponse(res, cards);
 });

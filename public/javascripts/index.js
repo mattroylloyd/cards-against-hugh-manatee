@@ -3,6 +3,10 @@ $(function() {
 
     $.get("register/" + uuid)
      .done(function () {
+     })
+     .error(function() {
+        alert('There was an error please reload the page!');
+     });
 
      })
      .error(function() {

@@ -21,7 +21,9 @@ html
           , answer_pool  = pusher.subscribe('answer-pool');
 
         user_channel.bind('add_user', function(data) {
-          alert(data.message);
+          $.each(data.cards, function (_, card) {
+            $('.hand').append('<div class="card">' + card.title + '</div>');
+          });
         });
 
         answer_pool.bind('submit_answer', function (data) {
